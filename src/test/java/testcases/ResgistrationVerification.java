@@ -2,6 +2,7 @@ package testcases;
 
 import java.time.Duration;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeTest;
@@ -29,11 +30,23 @@ public class ResgistrationVerification extends BasePage {
 	}
 	
 	@Test
-	public void test() {
+	public void test() throws InterruptedException {
 		
 		home.ClickEnroll();
-		regsitrationForm.enterDetailsAndClickSubmit("alexa", "test", "05/05/1989", "test", "test",  "alexa1@mailinator.com", "alexa1@mailinator.com", "7718048783",
+		regsitrationForm.enterDetailsAndClickSubmit(randomName(), "opendr", "05/05/1989", "test", "test",  "alexa1@mailinator.com", "alexa1@mailinator.com", "7718048783",
 				"1111111111","opendr123","opendr123");
 	}
+	
+	public String randomName() {
+		String name=RandomStringUtils.randomAlphabetic(5);
+		return name;
+	}
+	
+	public String randomNum() {
+		String number= RandomStringUtils.randomNumeric(10);
+		return number;
+	}
+	
+	
 
 }

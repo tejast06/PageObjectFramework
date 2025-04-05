@@ -1,5 +1,6 @@
 package pageObjects;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -64,16 +65,24 @@ public class RegsitrationForm extends BasePage {
 	@FindBy(xpath="//input[@name='zip']")
 	WebElement zipCode;
 	
+	@FindBy(xpath="//a[@ng-click='submitAuthCodeForm(authCodeForm)']")
+	WebElement authBtn;
+	
 	public void enterDetailsAndClickSubmit(String fn,String ln,String db,String addre,String ct,String em,String retyrem,String pn,String zp,
-			String pw,String retypepw) {
+			String pw,String retypepw) throws InterruptedException {
+		
+		
 		firstname.sendKeys(fn);
 		lastName.sendKeys(ln);
 		dob.sendKeys(db);
 		address.sendKeys(addre);
 		city.sendKeys(ct);
 		state.click();
-		email.sendKeys(em);
-		retypeEmail.sendKeys(retyrem);
+		
+	    String randomEmail=	RandomStringUtils.randomAlphabetic(5);
+		
+		email.sendKeys(randomEmail+"@mailinator.com");
+		retypeEmail.sendKeys(randomEmail+"@mailinator.com");
 		phoneNum.sendKeys(pn);
 		zipCode.sendKeys(zp);
 		password.sendKeys(pw);
@@ -83,7 +92,11 @@ public class RegsitrationForm extends BasePage {
 		smsCheck.click();
 		tc.click();
 		btn.click();
+		Thread.sleep(5000);
+		authBtn.click();
 		
 	}
+	
+	
 
 }
