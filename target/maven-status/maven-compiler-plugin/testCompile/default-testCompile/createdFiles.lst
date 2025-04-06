@@ -1,0 +1,6 @@
+pageObjects\LoginPage.class
+pageObjects\BasePage.class
+pageObjects\RegsitrationForm.class
+testcases\ResgistrationVerification.class
+pageObjects\SelectExam.class
+pageObjects\Home.class

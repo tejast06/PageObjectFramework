@@ -6,6 +6,7 @@
       <class name="testcases.ResgistrationVerification">
         <methods>
           <include name="setUp"/>
+          <include name="initialization"/>
           <include name="test"/>
         </methods>
       </class> <!-- testcases.ResgistrationVerification -->

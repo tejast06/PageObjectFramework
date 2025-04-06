@@ -24,7 +24,10 @@ public class ResgistrationVerification extends BasePage {
 	
 	@BeforeTest
 	public void setUp() {
-		initialization();
+		
+		
+		
+		initialization("os","chrome");
 		home = new Home();
 		regsitrationForm = new RegsitrationForm();
 	}
@@ -32,9 +35,15 @@ public class ResgistrationVerification extends BasePage {
 	@Test
 	public void test() throws InterruptedException {
 		
+		
 		home.ClickEnroll();
-		regsitrationForm.enterDetailsAndClickSubmit(randomName(), "opendr", "05/05/1989", "test", "test",  "alexa1@mailinator.com", "alexa1@mailinator.com", "7718048783",
+		
+		
+		regsitrationForm.enterDetailsAndClickSubmit(randomName(), "opendr", "05/05/1989", "test", "test",  "alexa1@mailinator.com", "alexa1@mailinator.com", randomNum(),
 				"1111111111","opendr123","opendr123");
+		
+			
+		
 	}
 	
 	public String randomName() {
